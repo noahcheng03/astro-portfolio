@@ -13,36 +13,42 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<h1>Noah Zheng</h1>
-			<p>
-				Marketing strategist, creative producer working across music and visual arts.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<section class="hero">
+				<h1>Noah Zheng</h1>
+				<p class="tagline">
+					Marketing strategist & creative producer<br />
+					working across music and visual arts.
+				</p>
+			</section>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.hero {
+		padding: 7em 0 5em;
+	}
+	.hero h1 {
+		font-size: 5.5em;
+		font-weight: 300;
+		letter-spacing: -0.02em;
+		margin-bottom: 0.45em;
+	}
+	.tagline {
+		font-size: 1.05em;
+		font-weight: 300;
+		color: var(--text-muted);
+		line-height: 1.7;
+		margin: 0;
+		max-width: 420px;
+	}
+	@media (max-width: 720px) {
+		.hero {
+			padding: 3.5em 0 2.5em;
+		}
+		.hero h1 {
+			font-size: 3.2em;
+		}
+	}
+</style>
