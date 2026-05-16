@@ -3,6 +3,17 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+const skills = [
+	'Music Production',
+	'Marketing Strategy',
+	'Multimedia Content',
+	'Campaign Execution',
+	'Localization Strategy',
+	'Artist Relations',
+	'Creative Direction',
+	'Event Management',
+];
 ---
 
 <!doctype html>
@@ -12,7 +23,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	</head>
 	<body>
 		<Header />
-		<main>
+
+		<main class="hero-wrap">
 			<section class="hero">
 				<h1>Noah Zheng</h1>
 				<p class="tagline">
@@ -21,20 +33,40 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				</p>
 			</section>
 		</main>
+
+		<section class="skills" aria-label="Competencies">
+			<ul class="skills-list">
+				{skills.map((s) => (
+					<li class="skill-item">{s}</li>
+				))}
+			</ul>
+		</section>
+
 		<Footer />
 	</body>
 </html>
 
 <style>
-	.hero {
-		padding: 7em 0 5em;
+	.hero-wrap {
+		min-height: calc(100svh - 62px - 120px);
+		max-width: 900px;
+		margin: auto;
+		padding: 0 1.5em;
+		display: flex;
+		align-items: center;
 	}
+
+	.hero {
+		padding: 4em 0;
+	}
+
 	.hero h1 {
 		font-size: 5.5em;
 		font-weight: 300;
 		letter-spacing: -0.02em;
-		margin-bottom: 0.45em;
+		margin-bottom: 1.6em;
 	}
+
 	.tagline {
 		font-size: 1.05em;
 		font-weight: 300;
@@ -43,12 +75,50 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		margin: 0;
 		max-width: 420px;
 	}
+
+	/* Full-bleed skills — warm grey block */
+	.skills {
+		width: 100%;
+		overflow: hidden;
+		background: #e2ddd7;
+		padding: 3em 0 5em 1.5rem;
+	}
+
+	.skills-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		line-height: 0.95;
+	}
+
+	.skill-item {
+		font-family: var(--font-sans);
+		font-size: clamp(1.6em, 2.8vw, 2.6em);
+		font-weight: 300;
+		color: #1a1917;
+		white-space: nowrap;
+		transition: color 0.15s ease;
+		cursor: default;
+		letter-spacing: -0.01em;
+	}
+
+	/* Dim all, highlight hovered */
+	.skills-list:hover .skill-item {
+		color: rgba(26, 25, 23, 0.3);
+	}
+	.skills-list .skill-item:hover {
+		color: #1a1917;
+	}
+
 	@media (max-width: 720px) {
-		.hero {
-			padding: 3.5em 0 2.5em;
+		.hero-wrap {
+			padding: 3.5em 1em 2.5em;
 		}
 		.hero h1 {
 			font-size: 3.2em;
+		}
+		.skills {
+			padding-left: 1rem;
 		}
 	}
 </style>

@@ -3,17 +3,119 @@ const today = new Date();
 ---
 
 <footer>
-	<span>&copy; {today.getFullYear()} Noah Zheng</span>
+	<div class="footer-inner">
+		<div class="footer-brand">
+			<a href="/" class="brand-name">Noah Zheng</a>
+			<span class="copyright">&copy; {today.getFullYear()}</span>
+		</div>
+
+		<div class="footer-links">
+			<div class="link-group">
+				<span class="link-group-label">Navigation</span>
+				<a href="/">Home</a>
+				<a href="/projects">Projects</a>
+				<a href="/work">Work</a>
+				<a href="/about">About</a>
+				<a href="/contact">Contact</a>
+			</div>
+
+			<div class="link-group">
+				<span class="link-group-label">Elsewhere</span>
+				<a href="https://www.instagram.com/itsnoahzheng/" target="_blank" rel="noopener noreferrer">Instagram</a>
+				<a href="https://www.xiaohongshu.com/user/profile/5d25edc50000000012008317?xsec_token=ABplRYGbO1W71zuLgpeyi9mYOgjzW4Y69esz9lsQmi9Bc%3D&xsec_source=pc_search" target="_blank" rel="noopener noreferrer">小红书</a>
+			</div>
+		</div>
+	</div>
 </footer>
 
 <style>
 	footer {
 		border-top: 1px solid var(--border);
-		padding: 2em;
+		background: var(--bg);
+		padding: 4em 2em 3em;
+	}
+
+	.footer-inner {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		width: 100%;
+	}
+
+	.footer-brand {
+		display: flex;
+		align-items: baseline;
+		gap: 1em;
+	}
+
+	.brand-name {
+		font-family: var(--font-serif);
+		font-size: 2.2em;
+		font-weight: 300;
+		color: var(--text);
+		text-decoration: none;
+		letter-spacing: -0.01em;
+		line-height: 1;
+	}
+
+	.copyright {
+		font-size: 0.75em;
+		letter-spacing: 0.06em;
 		color: var(--text-muted);
-		font-size: 0.72em;
-		letter-spacing: 0.08em;
+	}
+
+	.footer-links {
+		display: flex;
+		gap: 4em;
+		text-align: right;
+	}
+
+	.link-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5em;
+		align-items: flex-end;
+	}
+
+	.link-group-label {
+		font-size: 0.65em;
+		font-weight: 400;
+		letter-spacing: 0.12em;
 		text-transform: uppercase;
-		text-align: center;
+		color: var(--text-muted);
+		margin-bottom: 0.4em;
+	}
+
+	.link-group a {
+		font-size: 0.82em;
+		font-weight: 300;
+		letter-spacing: 0.06em;
+		color: var(--text);
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.link-group a:hover {
+		color: var(--text-muted);
+	}
+
+	@media (max-width: 600px) {
+		.footer-inner {
+			flex-direction: column;
+			gap: 2.5em;
+		}
+		.footer-brand {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.4em;
+		}
+		.footer-links {
+			gap: 2.5em;
+			text-align: left;
+			align-self: flex-end;
+		}
+		.link-group {
+			align-items: flex-end;
+		}
 	}
 </style>

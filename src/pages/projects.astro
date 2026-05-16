@@ -7,14 +7,223 @@ import Footer from '../components/Footer.astro';
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title="Projects | Noah Zheng" description="Selected projects by Noah Zheng." />
+		<BaseHead title="Projects | Noah Zheng" description="Selected projects by Noah Zheng across music, photography, and videography." />
 	</head>
 	<body>
 		<Header />
 		<main>
 			<h1>Projects</h1>
-			<p>Selected personal, creative, and work projects.</p>
+
+			<div class="jump-nav">
+				<a href="#music" class="jump-btn">Music</a>
+				<a href="#photography" class="jump-btn">Photography</a>
+				<a href="#videography" class="jump-btn">Videography</a>
+			</div>
+
+			<section id="music">
+				<h2>Music</h2>
+				<p>
+					Music has always been at the heart of what I do. With a background in game score
+					production for NetEase Games and years of work behind the scenes as a ghost producer,
+					I've had the privilege of shaping sounds across genres and platforms. That experience
+					culminated in projects like <em>Nefelibata 2</em> with Chinese artist Zeng Kechun — a
+					collaboration that reached over 39 million streams worldwide.
+				</p>
+				<div class="latest-project">
+					<span class="latest-label">Latest Project</span>
+					<div class="spotify-wrap">
+					<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6Q8KWGTJsoSQQo3YmkuMrN?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+					</div>
+					<p class="credit">Credits: producer, arranger</p>
+				</div>
+			</section>
+
+			<section id="photography">
+				<h2>Photography</h2>
+				<p class="placeholder-note">Coming soon.</p>
+			</section>
+
+			<section id="videography">
+				<h2>Videography</h2>
+				<p class="section-desc">Full stack video production.</p>
+
+				<div class="sub-tab-nav">
+					<button class="sub-tab-btn active" data-subtab="cinematography">Cinematography</button>
+					<button class="sub-tab-btn" data-subtab="colorist">Colorist</button>
+					<button class="sub-tab-btn" data-subtab="editing">Editing</button>
+				</div>
+
+				<div class="sub-tab-panel active" id="subtab-cinematography">
+					<p class="placeholder-note">Coming soon.</p>
+				</div>
+				<div class="sub-tab-panel" id="subtab-colorist">
+					<p class="placeholder-note">Coming soon.</p>
+				</div>
+				<div class="sub-tab-panel" id="subtab-editing">
+					<p class="placeholder-note">Coming soon.</p>
+				</div>
+			</section>
+
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<script>
+	const subBtns = document.querySelectorAll<HTMLButtonElement>('.sub-tab-btn');
+	const subPanels = document.querySelectorAll<HTMLElement>('.sub-tab-panel');
+
+	subBtns.forEach((btn) => {
+		btn.addEventListener('click', () => {
+			subBtns.forEach((b) => b.classList.remove('active'));
+			subPanels.forEach((p) => p.classList.remove('active'));
+			btn.classList.add('active');
+			document.getElementById(`subtab-${btn.dataset.subtab}`)?.classList.add('active');
+		});
+	});
+</script>
+
+<style>
+	h1 {
+		margin-bottom: 1em;
+	}
+
+	.jump-nav {
+		display: flex;
+		gap: 0.75em;
+		margin-bottom: 4em;
+		flex-wrap: wrap;
+	}
+
+	.jump-btn {
+		display: inline-block;
+		padding: 0.55em 1.3em;
+		border: 1px solid var(--border);
+		color: var(--text);
+		text-decoration: none;
+		font-size: 0.75em;
+		font-weight: 400;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		transition: border-color 0.2s ease, background 0.2s ease;
+	}
+
+	.jump-btn:hover {
+		border-color: var(--text);
+		text-decoration: none;
+	}
+
+	section {
+		padding: 3em 0;
+		border-top: 1px solid var(--border);
+		scroll-margin-top: 80px;
+	}
+
+	section h2 {
+		font-size: 2em;
+		font-weight: 300;
+		margin-bottom: 1em;
+	}
+
+	section p {
+		font-size: 1.05em;
+		font-weight: 300;
+		line-height: 1.85;
+		max-width: 620px;
+	}
+
+	section em {
+		font-family: var(--font-serif);
+		font-style: italic;
+	}
+
+	.latest-project {
+		margin-top: 2.5em;
+		max-width: 480px;
+	}
+
+	.latest-label {
+		display: block;
+		font-size: 0.65em;
+		font-weight: 400;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--text-muted);
+		margin-bottom: 1em;
+	}
+
+	.spotify-wrap {
+		border: 1px solid var(--border);
+		border-radius: 2px;
+		overflow: hidden;
+	}
+
+	.spotify-wrap iframe {
+		display: block;
+		border-radius: 0 !important;
+	}
+
+	.credit {
+		margin: 0.75em 0 0;
+		font-size: 0.72em !important;
+		letter-spacing: 0.06em;
+		color: var(--text-muted);
+		font-style: italic;
+	}
+
+	.placeholder-note {
+		font-size: 0.75em !important;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--text-muted);
+		padding: 2em 0;
+		margin: 0;
+	}
+
+	.section-desc {
+		font-size: 1.05em;
+		font-weight: 300;
+		color: var(--text-muted);
+		margin-bottom: 2em;
+	}
+
+	.sub-tab-nav {
+		display: flex;
+		gap: 0;
+		border-bottom: 1px solid var(--border);
+		margin-bottom: 2em;
+	}
+
+	.sub-tab-btn {
+		background: none;
+		border: none;
+		border-bottom: 2px solid transparent;
+		margin-bottom: -1px;
+		padding: 0.5em 1em 0.5em 0;
+		font-family: var(--font-sans);
+		font-size: 0.7em;
+		font-weight: 400;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--text-muted);
+		cursor: pointer;
+		transition: color 0.2s ease, border-color 0.2s ease;
+	}
+
+	.sub-tab-btn:hover {
+		color: var(--text);
+	}
+
+	.sub-tab-btn.active {
+		color: var(--text);
+		border-bottom-color: var(--text);
+	}
+
+	.sub-tab-panel {
+		display: none;
+	}
+
+	.sub-tab-panel.active {
+		display: block;
+	}
+</style>
