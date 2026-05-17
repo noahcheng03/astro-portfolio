@@ -31,8 +31,8 @@ import Footer from '../components/Footer.astro';
 				</p>
 				<div class="latest-project">
 					<span class="latest-label">Latest Project</span>
-					<div class="spotify-wrap">
-					<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6Q8KWGTJsoSQQo3YmkuMrN?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+					<div class="player-wrap">
+						<iframe src="https://embed.music.apple.com/us/album/dream-of-u/1828411582?i=1828411613" width="100%" height="150" frameborder="0" allow="autoplay; encrypted-media" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"></iframe>
 					</div>
 					<p class="credit">Credits: producer, arranger</p>
 				</div>
@@ -49,7 +49,7 @@ import Footer from '../components/Footer.astro';
 
 				<div class="sub-tab-nav">
 					<button class="sub-tab-btn active" data-subtab="cinematography">Cinematography</button>
-					<button class="sub-tab-btn" data-subtab="colorist">Colorist</button>
+					<button class="sub-tab-btn" data-subtab="color grading">Color grading</button>
 					<button class="sub-tab-btn" data-subtab="editing">Editing</button>
 				</div>
 
@@ -152,13 +152,14 @@ import Footer from '../components/Footer.astro';
 		margin-bottom: 1em;
 	}
 
-	.spotify-wrap {
+	.player-wrap {
 		border: 1px solid var(--border);
 		border-radius: 2px;
 		overflow: hidden;
+		margin-bottom: 0.6em;
 	}
 
-	.spotify-wrap iframe {
+	.player-wrap iframe {
 		display: block;
 		border-radius: 0 !important;
 	}

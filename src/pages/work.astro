@@ -13,8 +13,108 @@ import Footer from '../components/Footer.astro';
 		<Header />
 		<main>
 			<h1>Work</h1>
-			<p>Professional work across marketing, music technology, and brand growth.</p>
+			<p class="page-desc">Professional work across marketing, music technology, and brand growth.</p>
+
+			<section class="work-entry">
+				<div class="work-header">
+					<h2>Arturia</h2>
+					<span class="work-role">China Marketing Specialist</span>
+				</div>
+
+				<p class="work-desc">
+					As China Marketing Specialist at Arturia, I work on localized marketing, content creation,
+					artist relations, and community growth for the Chinese market. My role connects global brand
+					strategy with local creative culture, helping Arturia communicate its products through
+					campaigns, social media, partnerships, events, and music-focused storytelling.
+				</p>
+
+				<a
+					href="https://www.linkedin.com/posts/astrolab-ugcPost-7311396280788762624-J3NE?utm_source=share&utm_medium=member_ios&rcm=ACoAAFM48RMBqT0gXeL62Sr0RKZCdmmLY7WmnD4"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="link-card"
+				>
+					<span class="link-card-label">LinkedIn</span>
+					<span class="link-card-title">Read about my story →</span>
+				</a>
+			</section>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	h1 {
+		margin-bottom: 0.4em;
+	}
+
+	.page-desc {
+		font-size: 1.05em;
+		font-weight: 300;
+		color: var(--text-muted);
+		margin-bottom: 3em;
+		max-width: 540px;
+	}
+
+	.work-entry {
+		border-top: 1px solid var(--border);
+		padding: 3em 0;
+	}
+
+	.work-header {
+		margin-bottom: 1.5em;
+	}
+
+	.work-desc {
+		font-size: 1.05em;
+		font-weight: 300;
+		line-height: 1.85;
+		max-width: 620px;
+		margin-bottom: 2em;
+	}
+
+	.work-header h2 {
+		font-size: 2em;
+		font-weight: 300;
+		margin-bottom: 0.2em;
+	}
+
+	.work-role {
+		font-size: 0.8em;
+		font-weight: 300;
+		letter-spacing: 0.08em;
+		color: var(--text-muted);
+		text-transform: uppercase;
+	}
+
+	.link-card {
+		display: inline-flex;
+		flex-direction: column;
+		gap: 0.3em;
+		padding: 1.2em 1.6em;
+		border: 1px solid var(--border);
+		text-decoration: none;
+		transition: border-color 0.2s ease;
+		max-width: 320px;
+	}
+
+	.link-card:hover {
+		border-color: var(--text);
+		text-decoration: none;
+	}
+
+	.link-card-label {
+		font-size: 0.62em;
+		font-weight: 400;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--text-muted);
+	}
+
+	.link-card-title {
+		font-family: var(--font-serif);
+		font-size: 1.1em;
+		font-weight: 300;
+		color: var(--text);
+	}
+</style>
