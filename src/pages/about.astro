@@ -13,19 +13,21 @@ import Footer from '../components/Footer.astro';
 		<Header />
 		<main>
 
-			<section class="greeting">
-				<h1>Hi, I'm Noah.</h1>
-			</section>
-
-			<section class="bio">
-				<p>
-					I'm Noah Zheng, a marketing specialist and creative producer working at the intersection
-					of music technology, culture, and digital storytelling. With experience at Arturia leading
-					localized marketing, artist relations, content campaigns, and community growth in China, I
-					combine strategic brand thinking with hands-on creative production. My background in music
-					production, photography, video editing, and cross-cultural communication shapes the way I
-					approach projects: visually, culturally, and with a strong sense of audience.
-				</p>
+			<section class="about-top">
+				<div class="about-left">
+					<h1>Hi, I'm Noah.</h1>
+					<p class="bio-text">
+						I'm Noah Zheng, a marketing specialist and creative producer working at the intersection
+						of music technology, culture, and digital storytelling. With experience at Arturia leading
+						localized marketing, artist relations, content campaigns, and community growth in China, I
+						combine strategic brand thinking with hands-on creative production. My background in music
+						production, photography, video editing, and cross-cultural communication shapes the way I
+						approach projects: visually, culturally, and with a strong sense of audience.
+					</p>
+				</div>
+				<div class="about-photo-wrap">
+					<img src="/about-photo.png" alt="Noah Zheng" class="about-photo" />
+				</div>
 			</section>
 
 			<hr />
@@ -56,28 +58,44 @@ import Footer from '../components/Footer.astro';
 </html>
 
 <style>
-	.greeting {
-		padding-top: 4em;
+	.about-top {
+		display: flex;
+		align-items: flex-start;
+		gap: 4em;
+		padding: 4em 0 2.5em;
 	}
 
-	.greeting h1 {
+	.about-left {
+		flex: 1;
+		min-width: 0;
+	}
+
+	.about-left h1 {
 		font-size: 4.5em;
 		font-weight: 300;
 		letter-spacing: -0.02em;
-		margin-bottom: 0;
+		margin-bottom: 0.6em;
 	}
 
-	.bio {
-		padding: 2.5em 0;
-	}
-
-	.bio p {
+	.bio-text {
 		font-size: 1.05em;
 		font-weight: 300;
 		line-height: 1.85;
-		max-width: 640px;
 		margin: 0;
 		color: var(--text);
+	}
+
+	.about-photo-wrap {
+		flex-shrink: 0;
+		width: 260px;
+	}
+
+	.about-photo {
+		width: 100%;
+		height: auto;
+		display: block;
+		border-radius: 2px;
+		object-fit: cover;
 	}
 
 	hr {
@@ -120,8 +138,15 @@ import Footer from '../components/Footer.astro';
 	}
 
 	@media (max-width: 720px) {
-		.greeting h1 {
+		.about-top {
+			flex-direction: column;
+			gap: 2em;
+		}
+		.about-left h1 {
 			font-size: 3em;
+		}
+		.about-photo-wrap {
+			width: 100%;
 		}
 	}
 </style>

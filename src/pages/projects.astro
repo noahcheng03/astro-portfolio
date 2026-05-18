@@ -8,6 +8,7 @@ import Footer from '../components/Footer.astro';
 <html lang="en">
 	<head>
 		<BaseHead title="Projects | Noah Zheng" description="Selected projects by Noah Zheng across music, photography, and videography." />
+		<script async src="https://www.instagram.com/embed.js"></script>
 	</head>
 	<body>
 		<Header />
@@ -26,8 +27,8 @@ import Footer from '../components/Footer.astro';
 					Music has always been at the heart of what I do. With a background in game score
 					production for NetEase Games and years of work behind the scenes as a ghost producer,
 					I've had the privilege of shaping sounds across genres and platforms. That experience
-					culminated in projects like <em>Nefelibata 2</em> with Chinese artist Zeng Kechun — a
-					collaboration that reached over 39 million streams worldwide.
+					culminated in projects like <em>Nefelibata 2</em> with Chinese artist 曾柯淳 — a
+					collaboration that reached over 40 million streams both domestic and worldwide.
 				</p>
 				<div class="latest-project">
 					<span class="latest-label">Latest Project</span>
@@ -36,32 +37,105 @@ import Footer from '../components/Footer.astro';
 					</div>
 					<p class="credit">Credits: producer, arranger</p>
 				</div>
+				<a href="https://www.instagram.com/itsnoahzheng/" target="_blank" rel="noopener noreferrer" class="ig-link">More on Instagram ↗</a>
 			</section>
 
 			<section id="videography">
 				<h2>Videography</h2>
 				<p class="section-desc">Full stack video production.</p>
 
-				<div class="sub-tab-nav">
-					<button class="sub-tab-btn active" data-subtab="cinematography">Cinematography</button>
-					<button class="sub-tab-btn" data-subtab="color grading">Color grading</button>
-					<button class="sub-tab-btn" data-subtab="editing">Editing</button>
+				<!-- Instagram short-form: horizontal scroll -->
+				<span class="reel-label">Short Form</span>
+				<div class="reel-scroll">
+					<div class="reel-track">
+						<div class="reel-item">
+							<blockquote
+								class="instagram-media"
+								data-instgrm-permalink="https://www.instagram.com/p/DSIa8yWjYAQ/"
+								data-instgrm-version="14"
+								style="background:#f6f3ee;border:0;border-radius:2px;box-shadow:none;margin:0;min-width:100%;padding:0;width:100%;"
+							></blockquote>
+							<p class="video-credit">Original music, video production</p>
+						</div>
+						<div class="reel-item">
+							<blockquote
+								class="instagram-media"
+								data-instgrm-permalink="https://www.instagram.com/p/DSu1T9NDmv0/"
+								data-instgrm-version="14"
+								style="background:#f6f3ee;border:0;border-radius:2px;box-shadow:none;margin:0;min-width:100%;padding:0;width:100%;"
+							></blockquote>
+							<p class="video-credit">Original music, video production</p>
+						</div>
+					</div>
 				</div>
 
-				<div class="sub-tab-panel active" id="subtab-cinematography">
-					<p class="placeholder-note">Coming soon.</p>
+				<!-- Long-form: 2×2 grid -->
+				<span class="reel-label" style="margin-top:2.5em;">Long Form</span>
+				<div class="video-grid">
+					<div class="video-item">
+						<div class="video-frame">
+							<iframe
+								src="https://www.youtube.com/embed/OWzPu4s45ik?rel=0&modestbranding=1"
+								title="Colorist"
+								frameborder="0"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen
+							></iframe>
+						</div>
+						<p class="video-credit">Colorist</p>
+					</div>
+					<div class="video-item">
+						<div class="video-frame">
+							<iframe
+								src="https://www.youtube.com/embed/ZcXasPtOtEc?rel=0&modestbranding=1"
+								title="Camera operator, Colorist"
+								frameborder="0"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen
+							></iframe>
+						</div>
+						<p class="video-credit">Camera operator, Colorist</p>
+					</div>
+					<div class="video-item">
+						<div class="video-frame">
+							<iframe
+								src="https://www.youtube.com/embed/24RviPTzGvc?rel=0&modestbranding=1"
+								title="DP, Editing Supervisor, Director, Colorist"
+								frameborder="0"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen
+							></iframe>
+						</div>
+						<p class="video-credit">DP, Editing Supervisor, Director, Colorist</p>
+					</div>
+					<div class="video-item">
+						<div class="video-frame">
+							<iframe
+								src="https://player.bilibili.com/player.html?bvid=BV1qjkiBiEGa&page=1&high_quality=1&danmaku=0"
+								title="Director, DP, Colorist"
+								frameborder="0"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen
+								scrolling="no"
+							></iframe>
+						</div>
+						<p class="video-credit">Director, DP, Colorist</p>
+					</div>
 				</div>
-				<div class="sub-tab-panel" id="subtab-colorist">
-					<p class="placeholder-note">Coming soon.</p>
-				</div>
-				<div class="sub-tab-panel" id="subtab-editing">
-					<p class="placeholder-note">Coming soon.</p>
-				</div>
+
+				<a href="https://www.instagram.com/itsnoahzheng/" target="_blank" rel="noopener noreferrer" class="ig-link">More on Instagram ↗</a>
 			</section>
 
 			<section id="photography">
 				<h2>Photography</h2>
-				<p class="placeholder-note">Coming soon.</p>
+				<div class="photo-scroll">
+					<div class="photo-track">
+						{Array.from({length: 20}, (_, i) => i + 1).map((n) => (
+							<img src={`/photography/${n}.jpg`} alt={`Photography ${n}`} class="photo-slide" />
+						))}
+					</div>
+				</div>
+				<a href="https://www.instagram.com/itsnoahzheng/" target="_blank" rel="noopener noreferrer" class="ig-link">More on Instagram ↗</a>
 			</section>
 
 		</main>
@@ -69,19 +143,6 @@ import Footer from '../components/Footer.astro';
 	</body>
 </html>
 
-<script>
-	const subBtns = document.querySelectorAll<HTMLButtonElement>('.sub-tab-btn');
-	const subPanels = document.querySelectorAll<HTMLElement>('.sub-tab-panel');
-
-	subBtns.forEach((btn) => {
-		btn.addEventListener('click', () => {
-			subBtns.forEach((b) => b.classList.remove('active'));
-			subPanels.forEach((p) => p.classList.remove('active'));
-			btn.classList.add('active');
-			document.getElementById(`subtab-${btn.dataset.subtab}`)?.classList.add('active');
-		});
-	});
-</script>
 
 <style>
 	h1 {
@@ -181,6 +242,139 @@ import Footer from '../components/Footer.astro';
 		margin: 0;
 	}
 
+	.video-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1.2em 1.5em;
+		margin-bottom: 1.5em;
+	}
+
+	.video-item {
+		min-width: 0;
+	}
+
+	.reel-label {
+		display: block;
+		font-size: 0.65em;
+		font-weight: 400;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--text-muted);
+		margin-bottom: 1em;
+	}
+
+	.reel-scroll {
+		overflow-x: auto;
+		overflow-y: hidden;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: none;
+		cursor: grab;
+		margin-bottom: 0.5em;
+	}
+
+	.reel-scroll::-webkit-scrollbar { display: none; }
+	.reel-scroll:active { cursor: grabbing; }
+
+	.reel-track {
+		display: flex;
+		gap: 1em;
+		align-items: flex-start;
+	}
+
+	.reel-item {
+		flex-shrink: 0;
+		width: 300px;
+	}
+
+	.reel-item .instagram-media {
+		border-radius: 2px !important;
+	}
+
+	.video-frame {
+		position: relative;
+		width: 100%;
+		padding-top: 56.25%;
+		border: 1px solid var(--border);
+		border-radius: 2px;
+		overflow: hidden;
+	}
+
+	.video-frame iframe {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
+
+	.video-credit {
+		margin: 0.6em 0 0;
+		font-size: 0.72em;
+		letter-spacing: 0.06em;
+		color: var(--text-muted);
+		font-style: italic;
+	}
+
+	.photo-scroll {
+		overflow-x: auto;
+		overflow-y: hidden;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: none;
+		cursor: grab;
+		margin: 0 -1.5em;
+		padding: 0 1.5em;
+	}
+
+	.photo-scroll::-webkit-scrollbar {
+		display: none;
+	}
+
+	.photo-scroll:active {
+		cursor: grabbing;
+	}
+
+	.photo-track {
+		display: flex;
+		gap: 0.75em;
+		padding-bottom: 0.5em;
+	}
+
+	.photo-slide {
+		height: 420px;
+		width: auto;
+		flex-shrink: 0;
+		object-fit: cover;
+		border-radius: 2px;
+		display: block;
+	}
+
+	.ig-link {
+		display: inline-block;
+		margin-top: 1.8em;
+		font-size: 0.75em;
+		font-weight: 400;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--text-muted);
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.ig-link:hover {
+		color: var(--text);
+		text-decoration: none;
+	}
+
+	@media (max-width: 600px) {
+		.video-grid {
+			grid-template-columns: 1fr;
+		}
+		.ig-card {
+			flex-direction: column;
+			gap: 0.5em;
+		}
+	}
+
 	.section-desc {
 		font-size: 1.05em;
 		font-weight: 300;
@@ -188,43 +382,4 @@ import Footer from '../components/Footer.astro';
 		margin-bottom: 2em;
 	}
 
-	.sub-tab-nav {
-		display: flex;
-		gap: 0;
-		border-bottom: 1px solid var(--border);
-		margin-bottom: 2em;
-	}
-
-	.sub-tab-btn {
-		background: none;
-		border: none;
-		border-bottom: 2px solid transparent;
-		margin-bottom: -1px;
-		padding: 0.5em 2em 0.5em 0;
-		font-family: var(--font-sans);
-		font-size: 0.7em;
-		font-weight: 400;
-		letter-spacing: 0.1em;
-		text-transform: uppercase;
-		color: var(--text-muted);
-		cursor: pointer;
-		transition: color 0.2s ease, border-color 0.2s ease;
-	}
-
-	.sub-tab-btn:hover {
-		color: var(--text);
-	}
-
-	.sub-tab-btn.active {
-		color: var(--text);
-		border-bottom-color: var(--text);
-	}
-
-	.sub-tab-panel {
-		display: none;
-	}
-
-	.sub-tab-panel.active {
-		display: block;
-	}
 </style>

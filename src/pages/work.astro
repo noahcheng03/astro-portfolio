@@ -102,6 +102,20 @@ import Footer from '../components/Footer.astro';
 					</ul>
 				</div>
 			</section>
+
+			<section class="work-entry">
+				<div class="work-header">
+					<h2>Marketing Consulting</h2>
+				</div>
+
+				<p class="work-desc">
+					I help creative and OEM brands turn ideas into clear, audience-focused strategies. My work covers brand positioning, campaign planning, content direction, social media strategy, product storytelling, and cross-cultural market adaptation.
+				</p>
+				<p class="work-desc">
+					With experience in both creative production and marketing execution, as well as rich experiences across China and international creative markets, I approach consulting from both sides: understanding how a brand should communicate, and how that message can actually be turned into content, visuals, partnerships, and campaigns that feel natural to the audience.
+				</p>
+				<a href="/contact" class="contact-btn">Get in touch →</a>
+			</section>
 		</main>
 		<Footer />
 	</body>
@@ -313,6 +327,26 @@ import Footer from '../components/Footer.astro';
 		border-radius: 2px;
 		object-fit: cover;
 		display: block;
+	}
+
+	.contact-btn {
+		display: inline-block;
+		margin-top: 1.5em;
+		padding: 0.7em 1.6em;
+		border: 1px solid var(--text);
+		color: var(--text);
+		text-decoration: none;
+		font-size: 0.75em;
+		font-weight: 400;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		transition: background 0.2s ease, color 0.2s ease;
+	}
+
+	.contact-btn:hover {
+		background: var(--text);
+		color: var(--bg);
+		text-decoration: none;
 	}
 
 	@media (max-width: 720px) {
