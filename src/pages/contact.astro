@@ -13,8 +13,62 @@ import Footer from '../components/Footer.astro';
 		<Header />
 		<main>
 			<h1>Contact</h1>
-			<p>Email: <a href="mailto:noahchenghk@gmail.com">noahchenghk@gmail.com</a></p>
+			<div class="contact-list">
+				<div class="contact-item">
+					<span class="contact-label">Email</span>
+					<a href="mailto:noahchenghk@gmail.com">noahchenghk@gmail.com</a>
+				</div>
+				<div class="contact-item">
+					<span class="contact-label">Instagram</span>
+					<a href="https://www.instagram.com/itsnoahzheng/" target="_blank" rel="noopener noreferrer">@itsnoahzheng</a>
+				</div>
+			</div>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	h1 {
+		margin-bottom: 1.5em;
+	}
+
+	.contact-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+	}
+
+	.contact-item {
+		display: flex;
+		align-items: baseline;
+		gap: 2em;
+		padding: 1em 0;
+		border-bottom: 1px solid var(--border);
+	}
+
+	.contact-item:first-child {
+		border-top: 1px solid var(--border);
+	}
+
+	.contact-label {
+		font-size: 0.68em;
+		font-weight: 400;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--text-muted);
+		min-width: 80px;
+	}
+
+	.contact-item a {
+		font-size: 1em;
+		font-weight: 300;
+		color: var(--text);
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.contact-item a:hover {
+		color: var(--text-muted);
+	}
+</style>
