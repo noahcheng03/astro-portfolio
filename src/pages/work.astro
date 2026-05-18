@@ -16,17 +16,25 @@ import Footer from '../components/Footer.astro';
 			<p class="page-desc">Professional work across marketing, music technology, and brand growth.</p>
 
 			<section class="work-entry">
-				<div class="work-header">
-					<h2>Arturia</h2>
-					<span class="work-role">China Marketing Specialist</span>
-				</div>
+				<div class="arturia-top">
+					<div class="arturia-left">
+						<div class="work-header">
+							<h2>Arturia</h2>
+							<span class="work-role">China Marketing Specialist</span>
+						</div>
 
-				<p class="work-desc">
-					As China Marketing Specialist at Arturia, I work on localized marketing, content creation,
-					artist relations, and community growth for the Chinese market. My role connects global brand
-					strategy with local creative culture, helping Arturia communicate its products through
-					campaigns, social media, partnerships, events, and music-focused storytelling.
-				</p>
+						<p class="work-desc">
+							As China Marketing Specialist at Arturia, I work on localized marketing, content creation,
+							artist relations, and community growth for the Chinese market. My role connects global brand
+							strategy with local creative culture, helping Arturia communicate its products through
+							campaigns, social media, partnerships, events, and music-focused storytelling.
+						</p>
+					</div>
+
+					<div class="arturia-right">
+						<img src="/arturia-photo.jpg" alt="Noah Zheng at Arturia" class="arturia-photo" />
+					</div>
+				</div>
 
 				<a
 					href="https://www.linkedin.com/posts/astrolab-ugcPost-7311396280788762624-J3NE?utm_source=share&utm_medium=member_ios&rcm=ACoAAFM48RMBqT0gXeL62Sr0RKZCdmmLY7WmnD4"
@@ -37,11 +45,89 @@ import Footer from '../components/Footer.astro';
 					<span class="link-card-label">LinkedIn</span>
 					<span class="link-card-title">Read about my story →</span>
 				</a>
+
+				<div class="selected-works">
+					<span class="selected-works-label">Selected Works</span>
+					<ul class="works-list">
+						<li class="work-item work-item--expandable">
+							<div class="work-item-top">
+								<span class="work-item-title">AstroLab Tour</span>
+								<span class="work-item-tag">2024</span>
+							</div>
+							<div class="carousel">
+								<div class="carousel-track">
+									<img src="/astrolab-tour/photo-1.svg" alt="AstroLab Tour" class="carousel-slide" />
+									<img src="/astrolab-tour/photo-2.png" alt="AstroLab Tour" class="carousel-slide" />
+									<img src="/astrolab-tour/photo-3.png" alt="AstroLab Tour" class="carousel-slide" />
+								</div>
+							</div>
+						</li>
+						<li class="work-item work-item--expandable">
+							<div class="work-item-top">
+								<span class="work-item-title">Music China</span>
+								<span class="work-item-tag">2024</span>
+							</div>
+							<div class="carousel">
+								<div class="carousel-track">
+									{[1,2,3,4,5,6,7,8].map((n) => (
+										<img src={`/music-china/${n}.svg`} alt={`Music China ${n}`} class="carousel-slide" />
+									))}
+								</div>
+							</div>
+						</li>
+						<li class="work-item work-item--expandable">
+							<div class="work-item-top">
+								<span class="work-item-title">EDU Projects</span>
+							</div>
+							<div class="carousel">
+								<div class="carousel-track">
+									{[1,2,3,4].map((n) => (
+										<img src={`/edu-projects/${n}.svg`} alt={`EDU Projects ${n}`} class="carousel-slide" />
+									))}
+								</div>
+							</div>
+						</li>
+						<li class="work-item work-item--expandable">
+							<div class="work-item-top">
+								<span class="work-item-title">Artist Relations</span>
+							</div>
+							<div class="carousel">
+								<div class="carousel-track">
+									{[1,2,3,4,5,6,7,8,9,10,11].map((n) => (
+										<img src={`/artist-relations/${n}.jpg`} alt={`Artist Relations ${n}`} class="carousel-slide" />
+									))}
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
 			</section>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<script>
+	document.querySelectorAll<HTMLElement>('.carousel').forEach((carousel) => {
+		let isDown = false;
+		let startX = 0;
+		let scrollLeft = 0;
+
+		carousel.addEventListener('mousedown', (e) => {
+			isDown = true;
+			startX = e.pageX - carousel.offsetLeft;
+			scrollLeft = carousel.scrollLeft;
+		});
+		carousel.addEventListener('mouseleave', () => { isDown = false; });
+		carousel.addEventListener('mouseup', () => { isDown = false; });
+		carousel.addEventListener('mousemove', (e) => {
+			if (!isDown) return;
+			e.preventDefault();
+			const x = e.pageX - carousel.offsetLeft;
+			carousel.scrollLeft = scrollLeft - (x - startX) * 1.5;
+		});
+	});
+</script>
 
 <style>
 	h1 {
@@ -59,6 +145,30 @@ import Footer from '../components/Footer.astro';
 	.work-entry {
 		border-top: 1px solid var(--border);
 		padding: 3em 0;
+	}
+
+	.arturia-top {
+		display: flex;
+		gap: 3em;
+		align-items: flex-start;
+	}
+
+	.arturia-left {
+		flex: 1;
+		min-width: 0;
+	}
+
+	.arturia-right {
+		flex-shrink: 0;
+		width: 260px;
+	}
+
+	.arturia-photo {
+		width: 100%;
+		height: auto;
+		display: block;
+		border-radius: 2px;
+		object-fit: cover;
 	}
 
 	.work-header {
@@ -109,6 +219,109 @@ import Footer from '../components/Footer.astro';
 		letter-spacing: 0.12em;
 		text-transform: uppercase;
 		color: var(--text-muted);
+	}
+
+	.selected-works {
+		margin-top: 3em;
+		border-top: 1px solid var(--border);
+		padding-top: 2em;
+	}
+
+	.selected-works-label {
+		display: block;
+		font-size: 0.65em;
+		font-weight: 400;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--text-muted);
+		margin-bottom: 1.5em;
+	}
+
+	.works-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.work-item {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		padding: 0.9em 0;
+		border-bottom: 1px solid var(--border);
+		gap: 1em;
+	}
+
+	.work-item:first-child {
+		border-top: 1px solid var(--border);
+	}
+
+	.work-item-title {
+		font-family: var(--font-serif);
+		font-size: 1.2em;
+		font-weight: 300;
+		color: var(--text);
+	}
+
+	.work-item-tag {
+		font-size: 0.68em;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--text-muted);
+		white-space: nowrap;
+	}
+
+	.work-item--expandable {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 1.2em;
+	}
+
+	.work-item-top {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		width: 100%;
+	}
+
+	.carousel {
+		overflow-x: auto;
+		overflow-y: hidden;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: none;
+		cursor: grab;
+	}
+
+	.carousel::-webkit-scrollbar {
+		display: none;
+	}
+
+	.carousel:active {
+		cursor: grabbing;
+	}
+
+	.carousel-track {
+		display: flex;
+		gap: 0.75em;
+		padding-bottom: 0.5em;
+	}
+
+	.carousel-slide {
+		height: 240px;
+		width: auto;
+		flex-shrink: 0;
+		border-radius: 2px;
+		object-fit: cover;
+		display: block;
+	}
+
+	@media (max-width: 720px) {
+		.arturia-top {
+			flex-direction: column;
+		}
+		.arturia-right {
+			width: 100%;
+		}
 	}
 
 	.link-card-title {

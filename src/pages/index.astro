@@ -26,11 +26,18 @@ const skills = [
 
 		<main class="hero-wrap">
 			<section class="hero">
-				<h1>Noah Zheng</h1>
-				<p class="tagline">
-					Marketing strategist & creative producer<br />
-					working across music and visual arts.
-				</p>
+				<div class="hero-text">
+					<h1>Noah Zheng</h1>
+					<p class="tagline">
+						Marketing strategist & creative producer<br />
+						working across music and visual arts.
+					</p>
+				</div>
+
+				<div class="hero-visual">
+					<img src="/orange-circle.png" alt="" class="circle" aria-hidden="true" />
+					<img src="/noah-photo.png" alt="Noah Zheng" class="photo" />
+				</div>
 			</section>
 		</main>
 
@@ -57,7 +64,16 @@ const skills = [
 	}
 
 	.hero {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 4em;
 		padding: 4em 0;
+	}
+
+	.hero-text {
+		flex: 1;
 	}
 
 	.hero h1 {
@@ -73,7 +89,31 @@ const skills = [
 		color: var(--text-muted);
 		line-height: 1.7;
 		margin: 0;
-		max-width: 420px;
+	}
+
+	/* Photo composition */
+	.hero-visual {
+		position: relative;
+		flex-shrink: 0;
+		width: 340px;
+	}
+
+	.photo {
+		display: block;
+		width: 100%;
+		height: auto;
+		border-radius: 2px;
+		position: relative;
+		z-index: 1;
+	}
+
+	.circle {
+		position: absolute;
+		width: 36%;
+		height: auto;
+		top: -10%;
+		left: -12%;
+		z-index: 2;
 	}
 
 	/* Full-bleed skills — warm grey block */
@@ -112,10 +152,17 @@ const skills = [
 
 	@media (max-width: 720px) {
 		.hero-wrap {
-			padding: 3.5em 1em 2.5em;
+			padding: 2em 1em;
+		}
+		.hero {
+			flex-direction: column-reverse;
+			gap: 2.5em;
 		}
 		.hero h1 {
 			font-size: 3.2em;
+		}
+		.hero-visual {
+			width: 80%;
 		}
 		.skills {
 			padding-left: 1rem;
